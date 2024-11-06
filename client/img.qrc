@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>interf.jpg</file>
+    </qresource>
+</RCC>
