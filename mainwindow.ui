@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="videoContainer" native="true">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>160</y>
+      <width>591</width>
+      <height>333</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="DASHBOARD" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1281</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+    background-color: #004466;  /* Solid color background */
+    border-bottom: 2px solid #003366;  /* Subtle border at the bottom */
+    padding: 10px 20px;  /* Padding inside the dashboard */
+    color: #d1e3f3;  /* Lighter bluish white */
+    font-size: 18px;  /* Font size for text */
+    font-family: 'Segoe UI', sans-serif;  /* Modern font */
+    font-weight: bold;  /* Bold text */
+}
+
+</string>
+    </property>
+    <widget class="QPushButton" name="pushstock">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>30</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>STOCK</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="home">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>91</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	background-image: url(:/Downloads/png-clipart-metrostation-black-home-icon-thumbnail-removebg-preview_optimized.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>30</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>FOURNISSEUR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>30</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>LIVRAISON</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>30</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PERSONEL</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>860</x>
+       <y>30</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CLIENT</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>1100</x>
+       <y>30</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>compte</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>détails</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>paramétres</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>déconnexion</string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>160</y>
+      <width>641</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: #0066cc;  /* Blue text color */
+    font-size: 36px;  /* Large font size */
+    font-weight: bold;  /* Bold text */
+    font-family: 'Arial', sans-serif;  /* Modern, clean font */
+    text-align: center;  /* Center the text */
+    background-color: transparent;  /* Transparent background */
+    padding: 20px;  /* Padding around the text */
+    border: none;  /* No border */
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;YOUR SMART CLOTHING STORE&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>90</y>
+      <width>1291</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Pictures/img/Design sans titre (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="videoContainer_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>460</y>
+      <width>331</width>
+      <height>186</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>390</y>
+      <width>281</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel { 
+	
+	
+	color: rgb(86, 129, 129);
+    font-size: 36px;  /* Large font size */
+    font-weight: bold;  /* Bold text */
+    font-family: 'Arial', sans-serif;  /* Modern, clean font */
+    text-align: center;  /* Center the text */
+    background-color: transparent;  /* Transparent background */
+    padding: 20px;  /* Padding around the text */
+    border: none;  /* No border */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;powered by:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>621</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel { 
+	
+	
+	color: rgb(86, 129, 129);
+    font-size: 36px;  /* Large font size */
+    font-weight: bold;  /* Bold text */
+    font-family: 'Arial', sans-serif;  /* Modern, clean font */
+    text-align: center;  /* Center the text */
+    background-color: transparent;  /* Transparent background */
+    padding: 20px;  /* Padding around the text */
+    border: none;  /* No border */
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Encourager la créativité grâce à une gestion fluide. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Là où l'innovation rencontre la simplicité&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <zorder>label_2</zorder>
+   <zorder>videoContainer</zorder>
+   <zorder>DASHBOARD</zorder>
+   <zorder>label</zorder>
+   <zorder>videoContainer_2</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_3</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

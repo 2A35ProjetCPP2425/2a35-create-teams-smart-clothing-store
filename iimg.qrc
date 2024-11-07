@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/">
+        <file>../../Pictures/img/Design sans titre (1).png</file>
+        <file>../../Pictures/img/est-inferieur-a.png</file>
+        <file>../../Pictures/img/information.png</file>
+        <file>../../Pictures/img/livraison.png</file>
+        <file>../../Pictures/img/logo_meta-removebg-preview.png</file>
+        <file>../../Pictures/img/plus (1).png</file>
+        <file>../../Pictures/img/plus.png</file>
+        <file>../../Pictures/img/production.png</file>
+        <file>../../Pictures/img/randomqr-256.png</file>
+        <file>../../Pictures/img/trier.png</file>
+        <file>../../Pictures/img/png-clipart-metrostation-black-home-icon-thumbnail-removebg-preview.png</file>
+        <file>../../../Downloads/png-clipart-metrostation-black-home-icon-thumbnail-removebg-preview_optimized.png</file>
+        <file>../../../Downloads/acceder.png</file>
+        <file>../../../Downloads/pngtree-red-thick-line-stroke-arrow-clipart-png-image_2396274-removebg-preview.png</file>
+        <file>../../../Downloads/images__1_-removebg-preview.png</file>
+        <file>../../../Downloads/man-and-woman-working-behind-the-counter-in-a-clothing-store-M1NBKB.jpg</file>
+        <file>../../../Downloads/black-woman-phone-call-communication-260nw-2326113565.png</file>
+        <file>../../../Downloads/mra.jpg</file>
+        <file>../../../Downloads/feature-01-min.jpg</file>
+        <file>../../../Downloads/istockphoto-1715503982-612x612 (1).jpg</file>
+        <file>../../../Downloads/istockphoto-1715503982-612x612 (1).png</file>
+    </qresource>
+</RCC>
