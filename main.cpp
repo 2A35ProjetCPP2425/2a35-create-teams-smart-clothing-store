@@ -1,6 +1,6 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Bonjour, Git!" << std::endl;
+    std::cout << "Modification depuis la branche GestionProduits" << std::endl;
     return 0;
 }
