@@ -162,6 +162,62 @@ bool Client::modifier(int cin, QString nom, QString email, QString telephone_c, 
     }
 
 
+void Client::sendSMS(const QString &phoneNumber, const QString &message)
+{
+    // Créer un gestionnaire de requêtes réseau
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+
+    // Utiliser ton SID et Auth Token
+    QString accountSid = "ACc7bbbe7c24db05037ffca6ed749d5e47";  // SID Twilio
+    QString authToken = "e4a6d6ad7aed85bd8887c4d4a83a4b66"; // Auth Token Twilio
+
+    // URL de l'API Twilio (ajout de l'accountSid dans l'URL)
+    //QUrl url("https://api.twilio.com/2010-04-01/Accounts/"+accountSid+"/Messages.json");
+     QUrl url("https://api.twilio.com/2010-04-01/Accounts/ACc7bbbe7c24db05037ffca6ed749d5e47/Messages.json");
+
+
+    QNetworkRequest request(url);
+
+    // Définir les paramètres de la requête POST
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    QUrlQuery params;
+    params.addQueryItem("To", phoneNumber);  // Numéro du destinataire
+    params.addQueryItem("From", "+14237238633"); // Ton numéro Twilio
+    params.addQueryItem("Body", message);    // Contenu du message
+
+    QByteArray postData = params.toString(QUrl::FullyEncoded).toUtf8();
+
+    // Authentification de l'API Twilio en base64
+    QString authString = accountSid + ":" + authToken;
+    QByteArray authData = authString.toUtf8().toBase64();
+    request.setRawHeader("Authorization", "Basic " + authData);
+
+    // Envoyer la requête POST
+    QNetworkReply *reply = manager->post(request, postData);
+
+    // Connecter le signal "finished" pour gérer la réponse
+    QObject::connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        // Vérifier si la requête a abouti sans erreur
+        if (reply->error() == QNetworkReply::NoError) {
+            // Vérifier le code de statut HTTP
+            int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+            if (statusCode == 201) {
+                // Envoi réussi
+                emit smsSent(true, "SMS envoyé avec succès.");
+            } else {
+                // Code d'erreur HTTP retourné par Twilio
+                emit smsSent(false, "Erreur HTTP : " + QString::number(statusCode));
+            }
+        } else {
+            // Erreur d'envoi (problème de réseau ou autre)
+            emit smsSent(false, "Erreur réseau : " + reply->errorString());
+        }
+
+        // Libérer les ressources
+        reply->deleteLater();
+    });
+}
 
 
 

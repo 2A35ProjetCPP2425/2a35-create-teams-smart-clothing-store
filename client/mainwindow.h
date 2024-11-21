@@ -40,7 +40,7 @@ private slots:
      void on_pushButton_exporter_clicked();
       void on_lineEdit_recherche_textChanged();
      //void on_searchButton_clicked();
-    /* void on_sendSMSButton_clicked();  // Slot pour envoyer le SMS
+    void on_sendSMSButton_clicked();  // Slot pour envoyer le SMS
          void onSmsSent(bool success, const QString &message);  // Slot pour afficher un message après envoi*/
 
 
