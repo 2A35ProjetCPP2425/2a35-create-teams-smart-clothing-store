@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/loogo">
+        <file>loogoo.png</file>
+    </qresource>
+</RCC>

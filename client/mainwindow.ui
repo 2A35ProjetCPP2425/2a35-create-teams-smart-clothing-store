@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1255</width>
-    <height>600</height>
+    <width>1338</width>
+    <height>726</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,17 @@
       <x>70</x>
       <y>20</y>
       <width>1181</width>
-      <height>531</height>
+      <height>661</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Rockwell Nova Extra Bold</family>
+      <pointsize>10</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+      <underline>false</underline>
+     </font>
     </property>
     <property name="title">
      <string>MetaManage</string>
@@ -31,12 +40,30 @@
       <rect>
        <x>0</x>
        <y>20</y>
-       <width>1221</width>
-       <height>531</height>
+       <width>1381</width>
+       <height>621</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/res/interf.jpg);</string>
+      <string notr="true">
+
+background-image: url(:/bbackg/bbackg.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>1060</x>
+       <y>0</y>
+       <width>131</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/loogo/loogoo.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -46,55 +73,10 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
-       <width>1131</width>
-       <height>451</height>
+       <y>30</y>
+       <width>1161</width>
+       <height>601</height>
       </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>1131</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>1131</width>
-       <height>451</height>
-      </size>
-     </property>
-     <property name="baseSize">
-      <size>
-       <width>12</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe UI</family>
-       <pointsize>11</pointsize>
-       <italic>false</italic>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="mouseTracking">
-      <bool>false</bool>
-     </property>
-     <property name="tabletTracking">
-      <bool>false</bool>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::TabFocus</enum>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 700 11pt &quot;Segoe UI&quot;;
-border-color: rgb(84, 255, 90);</string>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -106,11 +88,29 @@ border-color: rgb(84, 255, 90);</string>
       <widget class="QTabWidget" name="tabWidget_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>10</y>
-         <width>1031</width>
-         <height>421</height>
+         <width>1141</width>
+         <height>541</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(9, 7, 83);
+
+font: 700  11pt &quot;Segoe UI&quot;;
+
+ 
+    QTabWidget {
+ background-image: url(:/backg/logo.jpg);/* Lien vers l'image de logo */
+    background-position: bottom right;  /* Positionner le logo en bas à droite */
+    background-repeat: no-repeat;  /* Ne pas répéter l'image */
+    background-attachment: fixed;  /* Garder l'image fixe lors du défilement */
+    background-size: 50px 50px;  /* Taille du logo (ajustez la taille à 50x50px, par exemple) */
+}
+
+
+
+</string>
        </property>
        <property name="currentIndex">
         <number>0</number>
@@ -122,70 +122,126 @@ border-color: rgb(84, 255, 90);</string>
         <widget class="QTableView" name="tableView">
          <property name="geometry">
           <rect>
-           <x>30</x>
-           <y>60</y>
-           <width>921</width>
-           <height>231</height>
+           <x>450</x>
+           <y>140</y>
+           <width>681</width>
+           <height>281</height>
           </rect>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="pushButton_exporter">
          <property name="geometry">
           <rect>
-           <x>40</x>
-           <y>310</y>
-           <width>141</width>
-           <height>29</height>
+           <x>460</x>
+           <y>460</y>
+           <width>191</width>
+           <height>41</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+  background-color: rgb(0, 102, 204);   
+  /*background-color: rgb(0, 102, 204);  /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}</string>
+         </property>
          <property name="text">
-          <string>Exporter</string>
+          <string>Exporter en pdf</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pushButtonasupprimer">
          <property name="geometry">
           <rect>
-           <x>650</x>
-           <y>320</y>
-           <width>111</width>
-           <height>29</height>
+           <x>770</x>
+           <y>460</y>
+           <width>151</width>
+           <height>41</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+    background-color: rgb(0, 102, 204);    /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}</string>
          </property>
          <property name="text">
           <string>Supprimer</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="pushButton_tri">
          <property name="geometry">
           <rect>
-           <x>700</x>
-           <y>20</y>
-           <width>83</width>
-           <height>29</height>
+           <x>850</x>
+           <y>60</y>
+           <width>111</width>
+           <height>41</height>
           </rect>
          </property>
-         <property name="text">
-          <string>Tirer</string>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+ /* background-color: rgb(0, 102, 204);  /* Couleur du fond */
+ background-color: rgb(0, 102, 204);   
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}
+</string>
          </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_6">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>20</y>
-           <width>121</width>
-           <height>29</height>
-          </rect>
-         </property>
          <property name="text">
-          <string>Rechercher</string>
+          <string>Trier</string>
          </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_CIN_2">
          <property name="geometry">
           <rect>
-           <x>780</x>
-           <y>310</y>
+           <x>930</x>
+           <y>460</y>
            <width>201</width>
            <height>41</height>
           </rect>
@@ -194,19 +250,21 @@ border-color: rgb(84, 255, 90);</string>
           <string notr="true">QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+    background-color: rgb(0, 0, 127); /* Bleu foncé */
+
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
 </string>
          </property>
@@ -214,18 +272,57 @@ QLineEdit:focus {
           <string/>
          </property>
          <property name="placeholderText">
-          <string>ecrire CIN</string>
+          <string>Entrer CIN</string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="comboBox_2">
          <property name="geometry">
           <rect>
-           <x>800</x>
-           <y>20</y>
+           <x>980</x>
+           <y>40</y>
            <width>131</width>
            <height>28</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">/* Style global pour QComboBox */
+QComboBox {
+ background-color: rgb(0, 85, 164);
+   /* background-color: rgb(0, 85, 164);  /* Bleu plus doux et clair que le bleu des boutons */
+    color: white;  /* Texte en blanc pour une bonne lisibilité */
+    border: 2px solid rgb(0, 102, 204);  /* Bordure qui s'harmonise avec le bleu des boutons */
+    border-radius: 0px;  /* Coins carrés (pas d'arrondi) */
+    padding: 5px;  /* Espacement interne pour rendre la zone de texte confortable */
+    font-size: 14px;  /* Taille de police claire */
+}
+
+/* Style pour la liste déroulante (éléments du QComboBox) */
+QComboBox QAbstractItemView {
+    background-color: rgb(0, 102, 204);  /* Couleur de fond de la liste déroulante (même bleu que les boutons) */
+    color: white;  /* Texte en blanc pour une meilleure visibilité */
+    selection-background-color: rgb(0, 85, 164);  /* Bleu plus clair au survol */
+    selection-color: black;  /* Texte noir lors de la sélection */
+}
+
+/* Style des éléments de la liste au survol */
+QComboBox QAbstractItemView::item:hover {
+    background-color: rgb(0, 125, 255);  /* Bleu légèrement plus clair pour le survol */
+    color: black;  /* Texte noir au survol pour contraste */
+}
+
+/* Si le QComboBox est désactivé */
+QComboBox:disabled {
+    background-color: rgb(204, 204, 204);  /* Gris clair si désactivé */
+    color: rgb(128, 128, 128);  /* Texte gris pour l'état désactivé */
+    border: 2px solid rgb(169, 169, 169);  /* Bordure grise si désactivé */
+}
+</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>CIN</string>
+          </property>
+         </item>
          <item>
           <property name="text">
            <string>Téléphone</string>
@@ -233,38 +330,80 @@ QLineEdit:focus {
          </item>
          <item>
           <property name="text">
-           <string>CIN</string>
+           <string>Nom</string>
           </property>
          </item>
         </widget>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="comboBox_ordre">
          <property name="geometry">
           <rect>
-           <x>210</x>
-           <y>310</y>
-           <width>111</width>
+           <x>980</x>
+           <y>100</y>
+           <width>131</width>
            <height>28</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">/* Style global pour QComboBox */
+QComboBox {
+ background-color: rgb(0, 85, 164);
+   /* background-color: rgb(0, 85, 164);  /* Bleu plus doux et clair que le bleu des boutons */
+    color: white;  /* Texte en blanc pour une bonne lisibilité */
+    border: 2px solid rgb(0, 102, 204);  /* Bordure qui s'harmonise avec le bleu des boutons */
+    border-radius: 0px;  /* Coins carrés (pas d'arrondi) */
+    padding: 5px;  /* Espacement interne pour rendre la zone de texte confortable */
+    font-size: 14px;  /* Taille de police claire */
+}
+
+/* Style pour la liste déroulante (éléments du QComboBox) */
+QComboBox QAbstractItemView {
+    background-color: rgb(0, 102, 204);  /* Couleur de fond de la liste déroulante (même bleu que les boutons) */
+    color: white;  /* Texte en blanc pour une meilleure visibilité */
+    selection-background-color: rgb(0, 85, 164);  /* Bleu plus clair au survol */
+    selection-color: black;  /* Texte noir lors de la sélection */
+}
+
+/* Style des éléments de la liste au survol */
+QComboBox QAbstractItemView::item:hover {
+    background-color: rgb(0, 125, 255);  /* Bleu légèrement plus clair pour le survol */
+    color: black;  /* Texte noir au survol pour contraste */
+}
+
+/* Si le QComboBox est désactivé */
+QComboBox:disabled {
+    background-color: rgb(204, 204, 204);  /* Gris clair si désactivé */
+    color: rgb(128, 128, 128);  /* Texte gris pour l'état désactivé */
+    border: 2px solid rgb(169, 169, 169);  /* Bordure grise si désactivé */
+}
+</string>
+         </property>
          <item>
           <property name="text">
-           <string>PDF</string>
+           <string>Ascendant</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Descendant</string>
           </property>
          </item>
         </widget>
-       </widget>
-       <widget class="QWidget" name="tab">
-        <attribute name="title">
-         <string>Ajouter</string>
-        </attribute>
-        <widget class="QGroupBox" name="groupBox_3">
+        <widget class="QGroupBox" name="tabWidget_3">
          <property name="geometry">
           <rect>
-           <x>330</x>
-           <y>20</y>
-           <width>241</width>
-           <height>291</height>
+           <x>10</x>
+           <y>30</y>
+           <width>361</width>
+           <height>411</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QGroupBox {
+   
+    border: 2px solid rgb(0, 102, 204);  /* Bordure bleu foncé */
+    border-radius: 5px;
+    padding: 10px;
+}</string>
          </property>
          <property name="title">
           <string/>
@@ -272,8 +411,8 @@ QLineEdit:focus {
          <widget class="QLineEdit" name="lineEdit_CIN">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>10</y>
+            <x>100</x>
+            <y>20</y>
             <width>211</width>
             <height>40</height>
            </rect>
@@ -282,19 +421,21 @@ QLineEdit:focus {
            <string notr="true">QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+background-color: rgb(0, 0, 127); /* Bleu foncé */
+
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
 </string>
           </property>
@@ -308,8 +449,8 @@ QLineEdit:focus {
          <widget class="QLineEdit" name="lineEdit_email">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>110</y>
+            <x>100</x>
+            <y>140</y>
             <width>211</width>
             <height>40</height>
            </rect>
@@ -318,19 +459,20 @@ QLineEdit:focus {
            <string notr="true">QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+   background-color: rgb(0, 0, 127); /* Bleu foncé */
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
 </string>
           </property>
@@ -344,8 +486,8 @@ QLineEdit:focus {
          <widget class="QLineEdit" name="lineEdit_telephone">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>160</y>
+            <x>100</x>
+            <y>200</y>
             <width>211</width>
             <height>40</height>
            </rect>
@@ -354,20 +496,24 @@ QLineEdit:focus {
            <string notr="true">QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+ color: rgba(255, 255, 255, 0.8); 
+    background-color: rgb(0, 0, 127); /* Bleu foncé */
+ 
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
+
 </string>
           </property>
           <property name="text">
@@ -380,8 +526,8 @@ QLineEdit:focus {
          <widget class="QLineEdit" name="lineEdit_nom">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>60</y>
+            <x>100</x>
+            <y>80</y>
             <width>211</width>
             <height>40</height>
            </rect>
@@ -390,19 +536,21 @@ QLineEdit:focus {
            <string notr="true">QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+    background-color: rgb(0, 0, 127); /* Bleu foncé */
+
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
 </string>
           </property>
@@ -413,11 +561,11 @@ QLineEdit:focus {
            <string>Nom</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_adresse">
+         <widget class="QLineEdit" name="lineEdit_matricule">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>210</y>
+            <x>100</x>
+            <y>300</y>
             <width>211</width>
             <height>40</height>
            </rect>
@@ -426,126 +574,1439 @@ QLineEdit:focus {
            <string notr="true">QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+ background-color: rgb(0, 0, 127); /* Bleu foncé */
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
 </string>
           </property>
           <property name="text">
-           <string>Adresse</string>
+           <string/>
           </property>
           <property name="placeholderText">
-           <string>Téléphone</string>
+           <string>Matricule</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_matricule">
+         <widget class="QLineEdit" name="lineEdit_adresse">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>100</x>
             <y>250</y>
             <width>211</width>
             <height>40</height>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLineEdit {
+           <string notr="true">
+QLineEdit {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
-    color: rgba(255, 255, 255, 0.5); /* Texte avec 50% de transparence */
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
     padding-left: 20px;
     padding-right: 20px;
-    background-color:rgb(0, 0, 127);
+     
+background-color: rgb(0, 0, 127); /* Bleu foncé */
 }
 
 QLineEdit:hover {
-    border: 2px solid rgb(48, 50, 62);
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
 }
 
 QLineEdit:focus {
-    border: 2px solid rgb(255, 85, 255);
-    background-color: rgb(255, 214, 119);
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
 }
 </string>
           </property>
           <property name="text">
-           <string>Matricule</string>
+           <string/>
           </property>
           <property name="placeholderText">
-           <string>Téléphone</string>
+           <string>Adresse</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_20">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>310</y>
+            <width>81</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Matricule&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_21">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>360</y>
+            <width>61</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Sexe&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="comboBox_sexe">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>360</y>
+            <width>171</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* Style global pour QComboBox */
+QComboBox {
+ background-color: rgb(0, 0, 127); /* Bleu foncé */
+   /* background-color: rgb(0, 85, 164);  /* Bleu plus doux et clair que le bleu des boutons */
+    color: white;  /* Texte en blanc pour une bonne lisibilité */
+    border: 2px solid rgb(0, 0,0);  /* Bordure qui s'harmonise avec le bleu des boutons */
+    border-radius: 0px;  /* Coins carrés (pas d'arrondi) */
+    padding: 5px;  /* Espacement interne pour rendre la zone de texte confortable */
+    font-size: 14px;  /* Taille de police claire */
+}
+
+/* Style pour la liste déroulante (éléments du QComboBox) */
+QComboBox QAbstractItemView {
+ 
+   background-color: rgb(0, 102, 204);  /* Couleur de fond de la liste déroulante (même bleu que les boutons) */
+    color: white;  /* Texte en blanc pour une meilleure visibilité */
+    selection-background-color: rgb(0, 85, 164);  /* Bleu plus clair au survol */
+    selection-color: black;  /* Texte noir lors de la sélection */
+}
+
+/* Style des éléments de la liste au survol */
+QComboBox QAbstractItemView::item:hover {
+    background-color: rgb(0, 125, 255);  /* Bleu légèrement plus clair pour le survol */
+    color: black;  /* Texte noir au survol pour contraste */
+}
+
+/* Si le QComboBox est désactivé */
+QComboBox:disabled {
+    background-color: rgb(204, 204, 204);  /* Gris clair si désactivé */
+    color: rgb(128, 128, 128);  /* Texte gris pour l'état désactivé */
+    border: 2px solid rgb(169, 169, 169);  /* Bordure grise si désactivé */
+}
+</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Homme</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Femme</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_19">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>260</y>
+            <width>81</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_22">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>90</y>
+            <width>63</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_23">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>30</y>
+            <width>121</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;CIN&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_24">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>150</y>
+            <width>63</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;E_mail&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>210</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Téléphone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </widget>
         <widget class="QPushButton" name="pushButtonajouter">
          <property name="geometry">
           <rect>
-           <x>300</x>
-           <y>320</y>
-           <width>83</width>
-           <height>29</height>
+           <x>0</x>
+           <y>460</y>
+           <width>121</width>
+           <height>41</height>
           </rect>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>11</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+     background-color: rgb(0, 102, 204);    /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}</string>
+         </property>
          <property name="text">
-          <string>ajouter</string>
+          <string>Ajouter</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pushButton_modif">
          <property name="geometry">
           <rect>
-           <x>500</x>
-           <y>320</y>
-           <width>111</width>
-           <height>29</height>
+           <x>140</x>
+           <y>460</y>
+           <width>121</width>
+           <height>41</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	font: 700 9pt &quot;Segoe UI&quot;;
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+     background-color: rgb(0, 102, 204);        /* Optional: Set a background color */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+}
+
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}</string>
+         </property>
          <property name="text">
-          <string>modifier</string>
+          <string>Modifier</string>
          </property>
         </widget>
+        <widget class="QPushButton" name="clearButton">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>460</y>
+           <width>101</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	font: 700 9pt &quot;Segoe UI&quot;;
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+     background-color: rgb(0, 102, 204);        /* Optional: Set a background color */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+}
+
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_recherche">
+         <property name="geometry">
+          <rect>
+           <x>510</x>
+           <y>60</y>
+           <width>211</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
+    padding-left: 20px;
+    padding-right: 20px;
+background-color: rgb(0, 0, 127); /* Bleu foncé */
+
+}
+
+QLineEdit:hover {
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
+}
+
+QLineEdit:focus {
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Rechercher </string>
+         </property>
+        </widget>
+        <zorder>pushButton_exporter</zorder>
+        <zorder>pushButtonasupprimer</zorder>
+        <zorder>pushButton_tri</zorder>
+        <zorder>lineEdit_CIN_2</zorder>
+        <zorder>comboBox_2</zorder>
+        <zorder>tableView</zorder>
+        <zorder>comboBox_ordre</zorder>
+        <zorder>tabWidget_3</zorder>
+        <zorder>pushButtonajouter</zorder>
+        <zorder>pushButton_modif</zorder>
+        <zorder>clearButton</zorder>
+        <zorder>lineEdit_recherche</zorder>
        </widget>
        <widget class="QWidget" name="tab_17">
         <attribute name="title">
-         <string>Statistique</string>
+         <string>Statistiques</string>
         </attribute>
+        <widget class="QPushButton" name="pushButton_statistiques">
+         <property name="geometry">
+          <rect>
+           <x>410</x>
+           <y>410</y>
+           <width>151</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+     background-color: rgb(0, 102, 204);    /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}</string>
+         </property>
+         <property name="text">
+          <string>Statistiques</string>
+         </property>
+        </widget>
+        <widget class="QGraphicsView" name="pie">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>60</y>
+           <width>591</width>
+           <height>301</height>
+          </rect>
+         </property>
+        </widget>
        </widget>
        <widget class="QWidget" name="tab_18">
         <attribute name="title">
-         <string>Mailling/SMS</string>
+         <string>SMS</string>
         </attribute>
+        <widget class="QPushButton" name="sendSMSButton">
+         <property name="geometry">
+          <rect>
+           <x>650</x>
+           <y>420</y>
+           <width>131</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+  background-color: rgb(0, 102, 204);   
+  /*background-color: rgb(0, 102, 204);  /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Envoyer</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>50</y>
+           <width>111</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Destinataire:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>150</y>
+           <width>171</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Texte du Message:</string>
+         </property>
+        </widget>
+        <widget class="QTextEdit" name="messageTextEdit">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>140</y>
+           <width>521</width>
+           <height>231</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(65, 116, 255);
+background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="phoneNumberLineEdit">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>40</y>
+           <width>211</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
+    padding-left: 20px;
+    padding-right: 20px;
+background-color: rgb(0, 0, 127); /* Bleu foncé */
+
+}
+
+QLineEdit:hover {
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
+}
+
+QLineEdit:focus {
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>entrer numero </string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_8">
+        <attribute name="title">
+         <string>mailling</string>
+        </attribute>
+        <widget class="QTextEdit" name="bodyEmail">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>150</y>
+           <width>651</width>
+           <height>171</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="email">
+         <property name="geometry">
+          <rect>
+           <x>700</x>
+           <y>460</y>
+           <width>171</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+  background-color: rgb(0, 102, 204);   
+  /*background-color: rgb(0, 102, 204);  /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>envoyer email</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="browseAttachmentsButton_2">
+         <property name="geometry">
+          <rect>
+           <x>910</x>
+           <y>340</y>
+           <width>141</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+  background-color: rgb(0, 102, 204);   
+  /*background-color: rgb(0, 102, 204);  /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Parcourir</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>30</y>
+           <width>141</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>11</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;À (Destinataire)&lt;span style=&quot; font-size:10pt; font-style:italic;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>160</y>
+           <width>91</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;Message:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>80</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Objet :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="removeAttachmentButton">
+         <property name="geometry">
+          <rect>
+           <x>910</x>
+           <y>400</y>
+           <width>141</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: white;                      /* Text color */
+    border: 2px solid black;         /* Border width and color */
+    border-radius: 15px;              /* Round the corners */
+  background-color: rgb(0, 102, 204);   
+  /*background-color: rgb(0, 102, 204);  /* Couleur du fond */
+    padding: 10px 20px;               /* Add padding for better aesthetics */
+  text-align: center;  /* Centrer le texte */
+}
+    
+QPushButton:hover {
+    background-color: rgb(30, 144, 255); /* Bleu clair au survol */
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 76, 153);   /* Bleu plus sombre lorsqu'on clique */
+}
+
+QPushButton:focus {
+    border: 2px solid rgb(0, 191, 255);  /* Bordure turquoise au focus */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+        <widget class="QListWidget" name="attachmentsListWidget">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>340</y>
+           <width>631</width>
+           <height>101</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="dest">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>20</y>
+           <width>321</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
+    padding-left: 20px;
+    padding-right: 20px;
+background-color: rgb(0, 0, 127); /* Bleu foncé */
+
+}
+
+QLineEdit:hover {
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
+}
+
+QLineEdit:focus {
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Email du Destinataire</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="objetEmail">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>80</y>
+           <width>321</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.8); /* Texte avec 80% de transparence (plus clair) */
+    padding-left: 20px;
+    padding-right: 20px;
+background-color: rgb(0, 0, 127); /* Bleu foncé */
+
+}
+
+QLineEdit:hover {
+    border: 2px solid rgb(48, 50, 62); /* Bordure grise foncée au survol */
+}
+
+QLineEdit:focus {
+    border: 2px solid rgb(64, 224, 208); /* Turquoise (cyan clair) pour la bordure lors du focus */
+    background-color: rgb(175, 238, 238); /* Bleu ciel pour l'arrière-plan */
+    color: rgb(0, 0, 0); /* Le texte devient noir lors du focus pour améliorer la lisibilité */
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Objet</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_9">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>350</y>
+           <width>161</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="AlternateBase">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>53</red>
+               <green>54</green>
+               <blue>55</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>9</red>
+               <green>7</green>
+               <blue>83</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Joindre un Fichier:&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_10">
+     <widget class="QWidget" name="tab_6">
       <attribute name="title">
        <string>Employé</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_11">
+     <widget class="QWidget" name="tab_7">
       <attribute name="title">
-       <string>Fournisseur</string>
+       <string>Produits</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_12">
-      <attribute name="title">
-       <string>Produit</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_13">
+     <widget class="QWidget" name="tab_9">
       <attribute name="title">
        <string>Livraison</string>
       </attribute>
      </widget>
+     <widget class="QWidget" name="tab_10">
+      <attribute name="title">
+       <string>Fournisseurs</string>
+      </attribute>
+     </widget>
     </widget>
+    <zorder>label</zorder>
+    <zorder>tabWidget</zorder>
+    <zorder>label_2</zorder>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -553,7 +2014,7 @@ QLineEdit:focus {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1255</width>
+     <width>1338</width>
      <height>25</height>
     </rect>
    </property>

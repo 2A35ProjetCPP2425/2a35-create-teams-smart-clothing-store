@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/bbackg">
+        <file>bbackg.jpg</file>
+    </qresource>
+</RCC>

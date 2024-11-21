@@ -1,5 +1,13 @@
 QT       += core gui
 QT += sql
+QT += printsupport
+QT += widgets sql charts
+QT += charts
+
+QT += core gui network
+
+
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,12 +20,14 @@ CONFIG += c++17
 SOURCES += \
     client.cpp \
     connection.cpp \
+    email.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     client.h \
     connection.h \
+    email.h \
     mainwindow.h
 
 FORMS += \
@@ -35,4 +45,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    img.qrc
+    background.qrc \
+    bbackg.qrc \
+    icones.qrc \
+    loogoo.qrc
