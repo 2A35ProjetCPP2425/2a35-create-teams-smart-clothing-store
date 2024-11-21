@@ -75,7 +75,7 @@ public:
       bool modifier(int cin, QString nom, QString email, QString telephone_c, QString adresse, int matricule_c,QString sexe_c);
 
 
-       void sendSMS(const QString &phoneNumber, const QString &message);
+      // void sendSMS(const QString &phoneNumber, const QString &message);
 
 signals:
     // Déclaration du signal qui sera émis après l'envoi du SMS

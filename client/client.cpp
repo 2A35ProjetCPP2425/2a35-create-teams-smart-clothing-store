@@ -167,7 +167,7 @@ bool Client::modifier(int cin, QString nom, QString email, QString telephone_c, 
 
 
 
-void Client::sendSMS(const QString &phoneNumber, const QString &message)
+/*void Client::sendSMS(const QString &phoneNumber, const QString &message)
 {
     // Créer un gestionnaire de requêtes réseau
     QNetworkAccessManager *manager = new QNetworkAccessManager();
@@ -210,10 +210,10 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
             if (statusCode == 201) {
                 // Envoi réussi
                 emit smsSent(true, "SMS envoyé avec succès.");
-            }/* else {
+            } else {
                 // Code d'erreur HTTP retourné par Twilio
                 emit smsSent(false, "Erreur HTTP : " + QString::number(statusCode));
-            }*/
+            }
         } else {
             // Erreur d'envoi (problème de réseau ou autre)
             emit smsSent(false, "Erreur réseau : " + reply->errorString());
@@ -224,7 +224,7 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
     });
 }
 
-
+*/
 
 
 

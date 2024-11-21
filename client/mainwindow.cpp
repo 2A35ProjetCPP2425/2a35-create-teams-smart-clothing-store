@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-   connect(&csupp, &Client::smsSent, this, &MainWindow::onSmsSent);
+ //  connect(&csupp, &Client::smsSent, this, &MainWindow::onSmsSent);
 
 
    // Connect the browse button for attachments
@@ -625,7 +625,7 @@ void MainWindow::displayGenderStatistics()
 //sms
 
 
-void MainWindow::on_sendSMSButton_clicked()
+/*void MainWindow::on_sendSMSButton_clicked()
 {
     // Récupérer le numéro et le message depuis l'interface (par exemple, via des champs de texte)
     QString phoneNumber = ui->phoneNumberLineEdit->text();
@@ -647,7 +647,7 @@ void MainWindow::onSmsSent(bool success, const QString &message)
         QMessageBox::critical(this, "Erreur", message);
     }
 }
-
+*/
 
 
 
