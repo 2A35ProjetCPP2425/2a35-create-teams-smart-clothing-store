@@ -24,6 +24,9 @@ public:
 private slots:
     void on_login_clicked();
 
+
+    void on_showpasswordLineEdit_clicked();
+
 private:
     Ui::Dialog *ui;
     bool loginSuccessful;  // Flag to track login success

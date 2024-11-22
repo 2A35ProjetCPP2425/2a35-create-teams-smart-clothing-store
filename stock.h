@@ -1,6 +1,7 @@
 #ifndef STOCK_H
 #define STOCK_H
 #include <QDialog>
+#include <QFileDialog>
 #include "produit.h"
 
 namespace Ui {
@@ -35,9 +36,32 @@ private slots:
 
     void on_exportationPDF_clicked();
 
+    void on_exportationPDF_2_clicked();
+
+    void on_boutonGenererGraphique_clicked();
+
+    void displayCatalogue();
+
+    void on_tabWidget_currentChanged(int index);
+    void on_recherche_textChanged(const QString &input);
+
+
+    void on_exportbutton_clicked();
+    bool eventFilter(QObject *obj, QEvent *event);
+    void updateStatistics();
+    void notifications();
+    void on_pushButton_2_clicked();
+
+    void on_deleteProductButton_clicked();
+
+    void on_contactfourniButton_clicked();
+
 private:
     Ui::stock *ui;
     produit Etemp;
+    bool isPrixAscending = true;
+    bool isQuantiteAscending = true;
+    bool isAZAscending = true;
 
 };
 

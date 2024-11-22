@@ -1,12 +1,12 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include "mainwindow.h"  // Include this to show the main window
-
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
     loginSuccessful = false;  // Initialize the login flag
 }
 
@@ -56,6 +56,18 @@ void Dialog::on_login_clicked() {
         // Handle query execution error
         qDebug() << "Query failed:" << query.lastError().text();
         QMessageBox::critical(this, tr("Database Error"), tr("Unable to execute query. Please try again later."));
+    }
+}
+void Dialog::on_showpasswordLineEdit_clicked()
+{
+    if (ui->passwordLineEdit->echoMode() == QLineEdit::Password) {
+        // Change to Normal mode to show the text
+        ui->passwordLineEdit->setEchoMode(QLineEdit::Normal);
+        ui->showpasswordLabel->setText("Hide Password"); // Update button text
+    } else {
+        // Change back to Password mode to hide the text
+        ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
+        ui->showpasswordLabel->setText("Show Password"); // Update button text
     }
 }
 
