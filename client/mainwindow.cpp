@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "qsortfilterproxymodel.h"
 #include "ui_mainwindow.h"
 #include "client.h"
 #include <QSqlTableModel>
@@ -26,7 +27,7 @@
 #include <QPainter>
 
 
-
+#include <QSerialPort>
 
 #include <QtCharts/QPieSlice>
 
@@ -36,26 +37,54 @@
 #include <QDebug>
 
 #include "email.h"
-
-
-
+#include "arduino.h"
 
  // Inclure votre classe Client
 #include <QMessageBox>
+#include <QRegularExpression>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+      arduino(new QSerialPort(this))
+
 {
     ui->setupUi(this);
 
+    connect(arduino, &QSerialPort::readyRead, this, &MainWindow::readFromArduino);
 
-    ui->tableView->setModel(csupp.afficher());
+    foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
+            if (info.description().contains("Arduino")) { // Adjust this based on your Arduino description
+                arduino->setPort(info);
+                break;
+            }
+        }
+
+        arduino->setBaudRate(QSerialPort::Baud9600);
+        arduino->setDataBits(QSerialPort::Data8);
+        arduino->setParity(QSerialPort::NoParity);
+        arduino->setStopBits(QSerialPort::OneStop);
+        arduino->setFlowControl(QSerialPort::NoFlowControl);
+
+        // Open the serial port
+        if (!arduino->isOpen()) {
+            if (arduino->open(QIODevice::ReadWrite)) {
+                qDebug() << "Port opened again.";
+            } else {
+                qDebug() << "Failed to reopen port:" << arduino->errorString();
+            }
+        }
+
+    ui->tableViewcl->setModel(csupp.afficher());
     connect(ui->lineEdit_recherche, &QLineEdit::textChanged, this, &MainWindow::on_lineEdit_recherche_textChanged);
    // connect(ui->searchButton, &QPushButton::clicked, this, &MainWindow::on_searchButton_clicked);
 
 
 
     connect(ui->pushButton_statistiques, &QPushButton::clicked, this, &MainWindow::displayGenderStatistics);
+
+    connect(ui->scan, &QPushButton::clicked, this, &MainWindow::compare);
+    connect(ui->pro, &QPushButton::clicked, this, &MainWindow::comparepro);
 
 
 
@@ -80,11 +109,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // Ajuster la largeur de toutes les colonnes (en augmentant de 50 pixels)
-    int columnCount = ui->tableView->model()->columnCount();
+    int columnCount = ui->tableViewcl->model()->columnCount();
     for (int i = 0; i < columnCount; ++i) {
-        int currentWidth = ui->tableView->columnWidth(i);
-        ui->tableView->setColumnWidth(i, currentWidth + 50);
+        int currentWidth = ui->tableViewcl->columnWidth(i);
+        ui->tableViewcl->setColumnWidth(i, currentWidth + 50);
     }
+
 
 
 
@@ -92,12 +122,149 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+
+
     delete ui;
+//delete arduino;  // Détruire l'objet Arduino
+}
+
+void MainWindow::readFromArduino()
+{
+    QByteArray data = arduino->readAll(); // Read all available data from Arduino
+    arduinoData.append(data);             // Append to buffer in case of partial data
+
+    // Check if we have a complete line of data (e.g., if data contains a newline)
+    if (arduinoData.contains('\n')) {
+        // Assuming that the RFID data is the complete message, trim extra spaces/newlines
+        cardCode = arduinoData.trimmed();
+        arduinoData.clear(); // Clear the buffer after processing
+
+        // Remove the "Card UID: " prefix if it exists, to get the actual UID
+        if (cardCode.startsWith("Card UID: ")) {
+            cardCode = cardCode.mid(10); // Remove the first 10 characters ("Card UID: ")
+        }
+        qDebug() << "cart uid:" << cardCode;
+
+        // Emit signal indicating a card has been scanned
+        emit cardScanned();
+    }
+}
+
+bool MainWindow::compareUIDWithDatabase() {
+    QSqlQuery query;
+
+
+    QString scannedUID=getArduinoData();
+    // Prepare and execute the query to fetch the UID from the EMPLOYE table
+    query.prepare("SELECT UID_CARTE FROM EMPLOYE WHERE UID_CARTE = :uid");
+    query.bindValue(":uid", scannedUID);
+    qDebug() << "scannedUID" << scannedUID;
+
+    if (!query.exec()) {
+        qDebug() << "Error executing query for EMPLOYE table:" << query.lastError().text();
+        QMessageBox::critical(this, "Database Error", "Failed to query the EMPLOYE table.");
+        return false;
+    }
+
+    // Check if a matching UID was found in the database
+    if (query.next()) {
+        QString fetchedUID = query.value(0).toString(); // Retrieve the UID from the result
+        qDebug() << "Scanned UID:" << scannedUID << ", Fetched UID:" << fetchedUID;
+
+        // Compare the fetched UID with the scanned UID
+        if (scannedUID == fetchedUID) {
+            qDebug() << "UID match found in EMPLOYE table.";
+            return true; // UIDs match
+        } else {
+            qDebug() << "UID does not match the fetched value.";
+        }
+    } else {
+        qDebug() << "No matching UID found in EMPLOYE table.";
+    }
+
+    return false; // Default to false if no match is found
 }
 
 
+bool MainWindow::compareUIDWithDatabasepro() {
+    QSqlQuery query;
 
 
+    QString scannedUID=getArduinoData();
+    // Prepare and execute the query to fetch the UID from the EMPLOYE table
+    query.prepare("SELECT UID_TAG FROM PRODUITS WHERE UID_TAG = :uid");
+    query.bindValue(":uid", scannedUID);
+    qDebug() << "scannedUID" << scannedUID;
+
+    if (!query.exec()) {
+        qDebug() << "Error executing query for EMPLOYE table:" << query.lastError().text();
+        QMessageBox::critical(this, "Database Error", "Failed to query the EMPLOYE table.");
+        return false;
+    }
+
+    // Check if a matching UID was found in the database
+    if (query.next()) {
+        QString fetchedUID = query.value(0).toString(); // Retrieve the UID from the result
+        qDebug() << "Scanned UID:" << scannedUID << ", Fetched UID:" << fetchedUID;
+
+        // Compare the fetched UID with the scanned UID
+        if (scannedUID == fetchedUID) {
+            qDebug() << "UID match found in produit table.";
+            return true; // UIDs match
+        } else {
+            qDebug() << "UID does not match the fetched value.";
+        }
+    } else {
+        qDebug() << "No matching UID found in produit table.";
+    }
+
+    return false; // Default to false if no match is found
+}
+
+QString MainWindow::getArduinoData()
+{
+    // Return the processed card code from the cardCode variable
+    return cardCode; // This is the UID that was extracted from the Arduino data
+}
+void MainWindow::compare(){
+    bool test=compareUIDWithDatabase();
+    qDebug() << "test employe =." << test;
+
+    if (test){
+        qDebug() << "grren send.";
+        sendGreenLEDSignal();
+    }
+}
+void MainWindow::comparepro(){
+    bool test=compareUIDWithDatabasepro();
+    qDebug() << "test produit =." << test;
+
+    if (test){
+        qDebug() << "red send";
+        sendredLEDSignal();
+    }
+}
+void MainWindow::sendGreenLEDSignal()
+{
+    if (arduino->isOpen()) {
+        QByteArray data = "GREEN_LED_ON";  // Command for green LED
+        arduino->write(data);
+        qDebug() << "grren send.";
+    } else {
+        qDebug() << "Arduino port not open.";
+    }
+}
+void MainWindow::sendredLEDSignal()
+{
+    if (arduino->isOpen()) {
+        QByteArray data = "RED_LED_ON";  // Command for green LED
+        arduino->write(data);
+        qDebug() << "red send.";
+    } else {
+        qDebug() << "Arduino port not open.";
+    }
+}
+//q
 void MainWindow::on_pushButtonajouter_clicked()
 {
     QString sexe = ui->comboBox_sexe->currentText();
@@ -156,7 +323,7 @@ void MainWindow::on_pushButtonajouter_clicked()
 
     if (test) {
         // Mettre à jour le modèle de la table et afficher un message de succès
-        ui->tableView->setModel(csupp.afficher());
+        ui->tableViewcl->setModel(csupp.afficher());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                                  QObject::tr("Ajout effectué\n"
                                              "Cliquez sur Annuler pour quitter."),
@@ -191,11 +358,11 @@ bool MainWindow::isValidEmail(const QString &email)
 
 
 int MainWindow::getClientCIN() {
-    QModelIndex index = ui->tableView->currentIndex();
+    QModelIndex index = ui->tableViewcl->currentIndex();
     int cin;
 
     if (index.isValid()) {
-        QSqlTableModel* model = (QSqlTableModel*)ui->tableView->model();
+        QSqlTableModel* model = (QSqlTableModel*)ui->tableViewcl->model();
         // Si une ligne est sélectionnée, on récupère le CIN depuis la ligne
         cin = model->data(index).toInt();
     } else {
@@ -242,7 +409,7 @@ void MainWindow::on_pushButtonasupprimer_clicked() {
 
         if (success) {
             // Mise à jour du tableau
-            ui->tableView->setModel(csupp.afficher());
+            ui->tableViewcl->setModel(csupp.afficher());
             QMessageBox::information(this, "Succès", "Client supprimé avec succès.");
         } else {
             QMessageBox::critical(this, "Erreur", "Échec de la suppression. Veuillez vérifier le CIN.");
@@ -254,7 +421,7 @@ void MainWindow::on_pushButtonasupprimer_clicked() {
 
 
 
-void MainWindow::on_tableView_clicked() {
+void MainWindow::on_tableViewcl_clicked() {
 
     int cin = getClientCIN();
         if (cin == -1) return; // Si une erreur a été rencontrée, sortir de la méthode
@@ -304,14 +471,14 @@ void MainWindow::on_pushButton_modif_clicked()
     // Récupérer les valeurs des champs d'entrée
 
     int cin = ui->lineEdit_CIN->text().toInt();
-     ui->lineEdit_CIN->setReadOnly(true);// Champ pour le CIN
+    // ui->lineEdit_CIN->setReadOnly(true);// Champ pour le CIN
     QString nom = ui->lineEdit_nom->text();      // Champ pour le nom
     QString email = ui->lineEdit_email->text();  // Champ pour l'email
     QString telephone_c = ui->lineEdit_telephone->text();  // Champ pour le téléphone
     QString adresse = ui->lineEdit_adresse->text();  // Champ pour l'adresse
     int matricule_c = ui->lineEdit_matricule->text().toInt();  // Champ pour le matricule
     // Récupérer la valeur sélectionnée dans le QComboBox pour le sexe
-        QString sexe = ui->comboBox_sexe->currentText();
+        QString sexe_c = ui->comboBox_sexe->currentText();
 
 
 
@@ -321,11 +488,11 @@ void MainWindow::on_pushButton_modif_clicked()
     Client c;
 
     // Appeler la méthode modifier pour mettre à jour les informations dans la base de données
-    bool success = c.modifier(cin,  nom,  email,  telephone_c,  adresse,  matricule_c,sexe);
+    bool success = c.modifier(cin,  nom,  email,  telephone_c,  adresse,  matricule_c,sexe_c);
 
     // Afficher un message de confirmation ou d'erreur selon le résultat
     if (success) {
-        ui->tableView->setModel(csupp.afficher());
+        ui->tableViewcl->setModel(csupp.afficher());
         QMessageBox::information(this, "Succès", "Les informations du client ont été modifiées avec succès.");
     } else {
         QMessageBox::critical(this, "Erreur", "La modification des informations a échoué.");
@@ -347,7 +514,7 @@ void MainWindow::on_pushButton_tri_clicked()
     model->select();  // Charger les données de la table CLIENT
 
     // Appliquer le modèle à la vue (tableView)
-    ui->tableView->setModel(model);
+    ui->tableViewcl->setModel(model);
 
     // Vérification du contenu de comboBox
     QString critereTri = ui->comboBox_2->currentText();
@@ -379,7 +546,7 @@ void MainWindow::on_pushButton_tri_clicked()
      model->setHeaderData(6, Qt::Horizontal, QObject::tr(" Sexe du Client" ));
 
     // Rafraîchir la vue
-    ui->tableView->reset();
+    ui->tableViewcl->reset();
 }
 
 
@@ -395,15 +562,21 @@ void MainWindow::on_pushButton_tri_clicked()
 #include <QFile>
 #include <QDebug>
 
-
-
-
-
 //pdf
-
-
-void MainWindow::on_pushButton_exporter_clicked()
+void MainWindow::on_exporter_clicked()
 {
+    // Demander à l'utilisateur s'il veut exporter avec ou sans tri
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Choisir l'option d'exportation",
+                                  "Voulez-vous exporter avec tri ou sans tri ?",
+                                  QMessageBox::Yes | QMessageBox::No);
+
+    // Si l'utilisateur choisit "Oui" (Avec tri)
+    if (reply == QMessageBox::Yes) {
+        on_pushButton_tri_clicked(); // Appliquer le tri avant d'exporter
+    }
+
+    // Récupérer le nom du fichier pour l'exportation
     QString fileName = QFileDialog::getSaveFileName(this, "Enregistrer en tant que PDF", "", "Fichiers PDF (*.pdf);;Tous les fichiers (*)");
     if (fileName.isEmpty()) {
         return;
@@ -416,7 +589,7 @@ void MainWindow::on_pushButton_exporter_clicked()
 
     QPainter painter(&pdfWriter);
 
-    QAbstractItemModel *model = ui->tableView->model();
+    QAbstractItemModel *model = ui->tableViewcl->model();
     if (!model) {
         QMessageBox::warning(this, "Erreur", "Aucune donnée à exporter.");
         return;
@@ -495,6 +668,7 @@ void MainWindow::on_pushButton_exporter_clicked()
 
 
 
+
 void MainWindow::on_lineEdit_recherche_textChanged()
 {
     // Créer un modèle pour la table CLIENT
@@ -528,7 +702,7 @@ void MainWindow::on_lineEdit_recherche_textChanged()
     model->select();
 
     // Appliquer le modèle à la vue (tableView)
-    ui->tableView->setModel(model);
+    ui->tableViewcl->setModel(model);
 
     // Redéfinir les en-têtes pour conserver les titres des colonnes
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN Client "));
@@ -540,7 +714,7 @@ void MainWindow::on_lineEdit_recherche_textChanged()
      model->setHeaderData(6, Qt::Horizontal, QObject::tr(" Sexe du Client" ));
 
     // Rafraîchir la vue pour afficher les résultats
-    ui->tableView->reset();
+    ui->tableViewcl->reset();
 }
 
 
@@ -610,18 +784,6 @@ void MainWindow::displayGenderStatistics()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //sms
 
 
@@ -650,12 +812,6 @@ void MainWindow::onSmsSent(bool success, const QString &message)
 
 
 
-
-
-
-
-
-
 //email
 
 void MainWindow::on_email_clicked() {
@@ -663,6 +819,11 @@ void MainWindow::on_email_clicked() {
     QString destinataire = ui->dest->text();
     QString objet = ui->objetEmail->text();
     QString corps = ui->bodyEmail->toPlainText();
+    // Vérifier la validité de l'email avec la méthode isValidEmail
+        if (!isValidEmail(destinataire)) {
+            QMessageBox::warning(this, "Erreur", "L'adresse email n'est pas valide.");
+            return;
+        }
 
     // Récupérer les chemins des pièces jointes
     QStringList attachments;
@@ -747,50 +908,3 @@ void MainWindow::onAttachmentDoubleClicked(QListWidgetItem *item) {
         QMessageBox::warning(this, "Erreur", "Impossible d'ouvrir le fichier.");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

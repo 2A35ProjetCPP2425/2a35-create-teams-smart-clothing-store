@@ -31,7 +31,7 @@ bool Client::ajouter()
     QSqlQuery query;
 
     // Vérifier l'existence de l'employé associé (clé étrangère)
-    query.prepare("SELECT * FROM EMPLOYÉS WHERE MATRICULE = :MATRICULE");
+    query.prepare("SELECT * FROM EMPLOYE WHERE MATRICULE = :MATRICULE");
     query.bindValue(":MATRICULE", matricule);
     if (!query.exec() || !query.next()) {
         QMessageBox::warning(nullptr, "Erreur", "Employé avec ce matricule non trouvé.");
@@ -132,9 +132,10 @@ bool Client::modifier(int cin, QString nom, QString email, QString telephone_c, 
                   "EMAIL_CLIENT = :email, "
                   "TELEPHONE_CLIENT = :telephone_c, "
                   "ADRESSE_CLIENT = :adresse, "
-                  "MATRICULE = :matricule_c "
-                   "SEXE = :sexe_c "
+                  "MATRICULE = :matricule_c, "
+                  "SEXE = :sexe_c "
                   "WHERE CIN = :cin");
+
 
     // Liaison des nouvelles valeurs
     query.bindValue(":cin", cin);
@@ -168,12 +169,12 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
     QNetworkAccessManager *manager = new QNetworkAccessManager();
 
     // Utiliser ton SID et Auth Token
-    QString accountSid = "ACc7bbbe7c24db05037ffca6ed749d5e47";  // SID Twilio
-    QString authToken = "e4a6d6ad7aed85bd8887c4d4a83a4b66"; // Auth Token Twilio
+    QString accountSid = "AC2078e5680cc143cc430cb044ddfbfdb8";  // SID Twilio
+    QString authToken = "1c8ab0aa44163c090b91ef9e01163774"; // Auth Token Twilio
 
     // URL de l'API Twilio (ajout de l'accountSid dans l'URL)
     //QUrl url("https://api.twilio.com/2010-04-01/Accounts/"+accountSid+"/Messages.json");
-     QUrl url("https://api.twilio.com/2010-04-01/Accounts/ACc7bbbe7c24db05037ffca6ed749d5e47/Messages.json");
+     QUrl url("https://api.twilio.com/2010-04-01/Accounts/AC2078e5680cc143cc430cb044ddfbfdb8/Messages.json");
 
 
     QNetworkRequest request(url);
@@ -183,7 +184,7 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
 
     QUrlQuery params;
     params.addQueryItem("To", phoneNumber);  // Numéro du destinataire
-    params.addQueryItem("From", "+14237238633"); // Ton numéro Twilio
+    params.addQueryItem("From", "+19366810575"); // Ton numéro Twilio
     params.addQueryItem("Body", message);    // Contenu du message
 
     QByteArray postData = params.toString(QUrl::FullyEncoded).toUtf8();
@@ -205,10 +206,10 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
             if (statusCode == 201) {
                 // Envoi réussi
                 emit smsSent(true, "SMS envoyé avec succès.");
-            } else {
+            }/* else {
                 // Code d'erreur HTTP retourné par Twilio
                 emit smsSent(false, "Erreur HTTP : " + QString::number(statusCode));
-            }
+            }*/
         } else {
             // Erreur d'envoi (problème de réseau ou autre)
             emit smsSent(false, "Erreur réseau : " + reply->errorString());

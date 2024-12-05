@@ -6,6 +6,12 @@
 #include <QTranslator>
 #include "connection.h"
 
+
+
+
+
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -26,11 +32,20 @@ int main(int argc, char *argv[])
                     QObject::tr("connection failed.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
+//employe
+    // Show the login dialog
+    // Show the login dialog
+    /*   Dialog dialog;
+       if (dialog.exec() == QDialog::Accepted) {
+           QString email="admin";
+          // MainWindow w(email);
+           w.show();
+           return a.exec(); // Start the application event loop
+       } else {
+           return 0; // Exit if login fails
+      }*/
 
-
-
-
-
+//client
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {
@@ -41,6 +56,8 @@ int main(int argc, char *argv[])
         }
     }
   Client csupp;
+
+
 
 
     return a.exec();
