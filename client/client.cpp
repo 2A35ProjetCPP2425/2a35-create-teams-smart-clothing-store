@@ -168,12 +168,12 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
     QNetworkAccessManager *manager = new QNetworkAccessManager();
 
     // Utiliser ton SID et Auth Token
-    QString accountSid = "AC2078e5680cc143cc430cb044ddfbfdb8";  // SID Twilio
-    QString authToken = "1c8ab0aa44163c090b91ef9e01163774"; // Auth Token Twilio
+    QString accountSid = "AC4ea106bb10f02d90b12a82ea3673a2b9";  // SID Twilio
+    QString authToken = "de3c2b6b8f1a442181b79734d8e4584f"; // Auth Token Twilio
 
     // URL de l'API Twilio (ajout de l'accountSid dans l'URL)
     //QUrl url("https://api.twilio.com/2010-04-01/Accounts/"+accountSid+"/Messages.json");
-     QUrl url("https://api.twilio.com/2010-04-01/Accounts/AC2078e5680cc143cc430cb044ddfbfdb8/Messages.json");
+     QUrl url("https://api.twilio.com/2010-04-01/Accounts/"+accountSid+"/Messages.json");
 
 
     QNetworkRequest request(url);
@@ -183,7 +183,7 @@ void Client::sendSMS(const QString &phoneNumber, const QString &message)
 
     QUrlQuery params;
     params.addQueryItem("To", phoneNumber);  // Numéro du destinataire
-    params.addQueryItem("From", "+19366810575"); // Ton numéro Twilio
+    params.addQueryItem("From", "+12765215431"); // Ton numéro Twilio
     params.addQueryItem("Body", message);    // Contenu du message
 
     QByteArray postData = params.toString(QUrl::FullyEncoded).toUtf8();
