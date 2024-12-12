@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "arduino.h"
 #include "videobackground.h"
 #include "stock.h"
 
@@ -19,13 +20,18 @@ public:
 private slots:
     void on_pushstock_clicked();
 
+    void readRFID();
 
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::MainWindow *ui;
     stock *S;
     VideoBackground *videoBackground;      // Video background object for the first container
     VideoBackground *videoBackground_2;    // Video background object for the second container
+    Arduino arduino;
 };
 
 #endif // MAINWINDOW_H

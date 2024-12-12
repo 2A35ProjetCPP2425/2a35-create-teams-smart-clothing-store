@@ -281,6 +281,30 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Encourager la créativité grâce à une gestion fluide. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Là où l'innovation rencontre la simplicité&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>560</y>
+      <width>431</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    background-color: black;        /* LCD background */
+    color: #33FF33;                /* Bright green for text */
+    font: bold 20px &quot;Courier New&quot;; /* Monospaced font for digital look */
+    border: 2px solid #009900;     /* Slight green border */
+    border-radius: 5px;            /* Rounded corners */
+    padding: 10px;                 /* Inner spacing */
+    text-align: center;            /* Center text */
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>label_2</zorder>
    <zorder>videoContainer</zorder>
    <zorder>DASHBOARD</zorder>
@@ -288,6 +312,7 @@
    <zorder>videoContainer_2</zorder>
    <zorder>label_4</zorder>
    <zorder>label_3</zorder>
+   <zorder>label_5</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

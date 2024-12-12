@@ -1,10 +1,11 @@
 QT       += core gui sql
-
+QT       += core gui quick quickwidgets
 QT += multimedia
 QT += sql
 QT += core gui widgets
 QT += multimedia multimediawidgets
 QT += charts
+QT += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,25 +16,42 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
+    connected.cpp \
     connection.cpp \
     dialog.cpp \
+    four.cpp \
+    fournisseur.cpp \
+    livraison.cpp \
     main.cpp \
     mainwindow.cpp \
     produit.cpp \
+    statistiquesdialog.cpp \
     stock.cpp \
+    qrcodegen.cpp \
     videobackground.cpp
 
 HEADERS += \
+    arduino.h \
+    connected.h \
     connection.h \
     dialog.h \
+    four.h \
+    fournisseur.h \
+    livraison.h \
     mainwindow.h \
     produit.h \
+    statistiquesdialog.h \
     stock.h \
+    qrcodegen.hpp \
     videobackground.h
 
 FORMS += \
+    connected.ui \
     dialog.ui \
+    four.ui \
     mainwindow.ui \
+    statistiquesdialog.ui \
     stock.ui
 
 # Default rules for deployment.
@@ -42,6 +60,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    Maps.qrc \
     iimg.qrc
 
 DISTFILES += \
@@ -59,6 +78,7 @@ DISTFILES += \
     ../../Pictures/img/plus.png \
     ../../Pictures/img/production.png \
     ../../Pictures/img/randomqr-256.png \
-    ../../Pictures/img/trier.png
+    ../../Pictures/img/trier.png \
+    xxx.qml
 
 
