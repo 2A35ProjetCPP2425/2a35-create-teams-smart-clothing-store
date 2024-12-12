@@ -1,5 +1,7 @@
 #include "fournisseur.h"
 #include <QSqlError>
+#include <QRegularExpression>
+#include <QMessageBox>
 
 Fournisseur::Fournisseur(int id, QString nom_entreprise, QString email, QString telephone, QString info_banc)
 {
@@ -10,17 +12,72 @@ Fournisseur::Fournisseur(int id, QString nom_entreprise, QString email, QString 
     this->info_banc = info_banc;
 }
 
+
 bool Fournisseur::ajouter()
 {
-    // Vérifier que l'ID est supérieur à 0
-    if (id <= 0) {
-        qDebug() << "ID invalide. L'ID doit être supérieur à 0.";
+    // Vérifier que l'ID est supérieur à 0 et contient uniquement des chiffres
+    QRegularExpression idRegex("^[0-9]+$");
+    if (id <= 0 || !idRegex.match(QString::number(id)).hasMatch()) {
+        QMessageBox::warning(nullptr, "Erreur", "ID invalide. L'ID doit être un nombre positif et contenir uniquement des chiffres.");
+        return false;
+    }
+
+    // Vérifier si l'ID existe déjà dans la base de données
+    QSqlQuery checkQuery;
+    checkQuery.prepare("SELECT COUNT(*) FROM FOURNISSEURS WHERE ID = :id");
+    checkQuery.bindValue(":id", id);
+    if (checkQuery.exec()) {
+        if (checkQuery.next() && checkQuery.value(0).toInt() > 0) {
+            QMessageBox::warning(nullptr, "Erreur", "L'ID existe déjà. Veuillez utiliser un autre ID.");
+            return false;
+        }
+    } else {
+        QMessageBox::critical(nullptr, "Erreur", "Erreur lors de la vérification de l'ID: " + checkQuery.lastError().text());
         return false;
     }
 
     // Vérifier que les champs essentiels ne sont pas vides
-    if (nom_entreprise.isEmpty() || email.isEmpty() || telephone.isEmpty() || info_banc.isEmpty()) {
-        qDebug() << "Certains champs sont vides. Tous les champs doivent être remplis.";
+    if (nom_entreprise.isEmpty()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le champ 'Nom de l'entreprise' ne doit pas être vide.");
+        return false;
+    }
+    if (email.isEmpty()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le champ 'Email' ne doit pas être vide.");
+        return false;
+    }
+    if (telephone.isEmpty()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le champ 'Téléphone' ne doit pas être vide.");
+        return false;
+    }
+    if (info_banc.isEmpty()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le champ 'Nom de la banque' ne doit pas être vide.");
+        return false;
+    }
+
+    // Vérifier que le nom de l'entreprise contient uniquement des lettres et des espaces
+    QRegularExpression textRegex("^[A-Za-zÀ-ÿÉéÈèÊêËëÔôÙùÇç ]+$");
+    if (!textRegex.match(nom_entreprise).hasMatch()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le nom de l'entreprise doit contenir uniquement des lettres et des espaces.");
+        return false;
+    }
+
+    // Vérifier que le nom de la banque contient uniquement des lettres et des espaces
+    if (!textRegex.match(info_banc).hasMatch()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le nom de la banque doit contenir uniquement des lettres et des espaces.");
+        return false;
+    }
+
+    // Vérifier que l'email est valide
+    QRegularExpression emailRegex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    if (!emailRegex.match(email).hasMatch()) {
+        QMessageBox::warning(nullptr, "Erreur", "L'email est invalide. Il doit contenir un '@' et un domaine correct.");
+        return false;
+    }
+
+    // Vérifier que le téléphone contient uniquement des chiffres
+    QRegularExpression phoneRegex("^[0-9]+$");
+    if (!phoneRegex.match(telephone).hasMatch()) {
+        QMessageBox::warning(nullptr, "Erreur", "Le numéro de téléphone doit contenir uniquement des chiffres.");
         return false;
     }
 
@@ -29,7 +86,7 @@ bool Fournisseur::ajouter()
     QString res = QString::number(id);
 
     // Préparer la requête SQL
-    query.prepare("insert into FOURNISSEURS (id, nom_entreprise, email, telephone, info_banc) "
+    query.prepare("INSERT INTO FOURNISSEURS (id, nom_entreprise, email, telephone, info_banc) "
                   "VALUES (:id, :nom_entreprise, :email, :telephone, :info_banc)");
 
     // Lier les valeurs
@@ -38,8 +95,6 @@ bool Fournisseur::ajouter()
     query.bindValue(":email", email);
     query.bindValue(":telephone", telephone);
     query.bindValue(":info_banc", info_banc);
-
-    // Exécuter la requête et vérifier si elle réussit
     if (!query.exec()) {
         qDebug() << "Erreur d'insertion: " << query.lastError().text();
         return false;
@@ -47,7 +102,6 @@ bool Fournisseur::ajouter()
 
     return true;
 }
-
 
 bool Fournisseur::supprimer(int id)
 {
@@ -78,26 +132,38 @@ QSqlQueryModel* Fournisseur::afficher()
 
 bool Fournisseur::modifier() {
     QSqlQuery query;
+
+    // Charger les valeurs existantes pour cet ID
+    query.prepare("SELECT NOM_ENTREPRISE, TELEPHONE, EMAIL, INFO_BANC FROM FOURNISSEURS WHERE ID = :ID");
+    query.bindValue(":ID", id);
+    if (!query.exec() || !query.next()) {
+        qDebug() << "Erreur lors du chargement des données actuelles: " << query.lastError().text();
+        return false;
+    }
+
+    // Utiliser les valeurs actuelles si les champs sont vides
+    QString nom_entreprise_modifie = nom_entreprise.isEmpty() ? query.value("NOM_ENTREPRISE").toString() : nom_entreprise;
+    QString telephone_modifie = telephone.isEmpty() ? query.value("TELEPHONE").toString() : telephone;
+    QString email_modifie = email.isEmpty() ? query.value("EMAIL").toString() : email;
+    QString info_banc_modifie = info_banc.isEmpty() ? query.value("INFO_BANC").toString() : info_banc;
+
+    // Préparer et exécuter la requête de mise à jour
     query.prepare("UPDATE FOURNISSEURS SET NOM_ENTREPRISE = :NOM_ENTREPRISE, "
                   "TELEPHONE = :TELEPHONE, EMAIL = :EMAIL, INFO_BANC = :INFO_BANC "
                   "WHERE ID = :ID");
-
-    // Lien des valeurs aux paramètres
     query.bindValue(":ID", id);
-    query.bindValue(":NOM_ENTREPRISE", nom_entreprise);
-    query.bindValue(":TELEPHONE", telephone);
-    query.bindValue(":EMAIL", email);
-    query.bindValue(":INFO_BANC", info_banc);
+    query.bindValue(":NOM_ENTREPRISE", nom_entreprise_modifie);
+    query.bindValue(":TELEPHONE", telephone_modifie);
+    query.bindValue(":EMAIL", email_modifie);
+    query.bindValue(":INFO_BANC", info_banc_modifie);
 
-    // Exécution de la requête
-    if (query.exec()) {
-        // Vérifiez le nombre de lignes affectées
-        int rowsAffected = query.numRowsAffected();
-        qDebug() << "Nombre de lignes affectées:" << rowsAffected;
-        return rowsAffected > 0;  // Retourne vrai si la mise à jour a affecté au moins une ligne
-    } else {
-        // Affichez l'erreur SQL si la requête échoue
+    if (!query.exec()) {
         qDebug() << "Erreur de modification: " << query.lastError().text();
         return false;
     }
+
+    int rowsAffected = query.numRowsAffected();
+    qDebug() << "Nombre de lignes affectées:" << rowsAffected;
+    return rowsAffected > 0;  // Retourne vrai si la mise à jour a affecté au moins une ligne
 }
+

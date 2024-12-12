@@ -161,7 +161,7 @@ QPushButton:pressed {
 </string>
    </property>
    <property name="text">
-    <string>Paasword</string>
+    <string>Password</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">

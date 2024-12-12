@@ -6,7 +6,6 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlError>
-
 namespace Ui {
 class Dialog;
 }

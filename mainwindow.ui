@@ -17,9 +17,9 @@
    <widget class="QTabWidget" name="tableView_3">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-10</x>
       <y>0</y>
-      <width>1211</width>
+      <width>1221</width>
       <height>631</height>
      </rect>
     </property>
@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -51,7 +51,7 @@
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>0</x>
          <y>300</y>
          <width>141</width>
          <height>51</height>
@@ -83,7 +83,7 @@
       <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>230</y>
          <width>111</width>
          <height>41</height>
@@ -412,7 +412,7 @@ QPushButton:pressed {
         <rect>
          <x>370</x>
          <y>70</y>
-         <width>501</width>
+         <width>521</width>
          <height>261</height>
         </rect>
        </property>
@@ -441,7 +441,7 @@ QTableView::item:selected {
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>490</x>
          <y>10</y>
          <width>271</width>
          <height>51</height>
@@ -651,7 +651,7 @@ QPushButton:pressed {
        <rect>
         <x>310</x>
         <y>100</y>
-        <width>521</width>
+        <width>541</width>
         <height>261</height>
        </rect>
       </property>
@@ -971,7 +971,7 @@ QLineEdit::placeholder {
      <widget class="QLabel" name="label_42">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>230</y>
         <width>111</width>
         <height>41</height>
@@ -1035,7 +1035,7 @@ QLineEdit::placeholder {
      <widget class="QLabel" name="label_43">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>300</y>
         <width>141</width>
         <height>51</height>
@@ -1133,7 +1133,7 @@ QLineEdit::placeholder {
        <rect>
         <x>380</x>
         <y>110</y>
-        <width>481</width>
+        <width>511</width>
         <height>261</height>
        </rect>
       </property>
@@ -1217,45 +1217,14 @@ QTableView::item:selected {
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
-      <string>Historique</string>
+      <string>Suivi</string>
      </attribute>
-     <widget class="QTableWidget" name="tableWidget_7">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>140</y>
-        <width>621</width>
-        <height>261</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QTableView {
-    background-color: black;        /* Fond de la table en noir */
-    color: white;                   /* Texte en blanc */
-    border: 1px solid #3A3A3A;      /* Bordure gris foncé */
-    gridline-color: #444444;        /* Couleur des lignes de grille (gris foncé) */
-    selection-background-color: #2980B9; /* Fond bleu pour la sélection */
-    selection-color: white;         /* Texte blanc pour la sélection */
-}
-
-QTableView::item {
-    background-color: black;        /* Fond noir pour les cellules */
-    color: white;                   /* Texte des cellules en blanc */
-}
-
-QTableView::item:selected {
-    background-color: #2980B9;      /* Fond bleu pour les cellules sélectionnées */
-    color: white;                   /* Texte blanc pour les cellules sélectionnées */
-}
-</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>80</y>
-        <width>231</width>
+        <x>400</x>
+        <y>70</y>
+        <width>261</width>
         <height>51</height>
        </rect>
       </property>
@@ -1271,25 +1240,47 @@ QTableView::item:selected {
 </string>
       </property>
       <property name="text">
-       <string>Les Derniers achats</string>
+       <string>Liste des fournissuer</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="lineEdit_recherche">
       <property name="geometry">
        <rect>
-        <x>840</x>
-        <y>260</y>
-        <width>151</width>
+        <x>970</x>
+        <y>180</y>
+        <width>141</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    border: 3px solid black;          /* Couleur du contour (noir) */
+    border-radius: 8px;               /* Coins arrondis */
+    padding: 10px;                    /* Espacement à l'intérieur du line edit */
+    background-color: #D3D3D3;        /* Fond gris clair */
+    color: #333;                      /* Couleur du texte sombre */
+    font-size: 14px;                  /* Taille de police */
+    transition: border-color 0.3s;    /* Transition douce pour la couleur du contour */
+}
+
+QLineEdit:focus {
+    border: 3px solid black;          /* Contour noir lorsqu'il est en focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Effet d'ombre subtil (noir) */
+}
+
+QLineEdit::placeholder {
+    color: #999;                      /* Couleur du texte d'espace réservé */
+    opacity: 1;                       /* Assurez-vous que l'espace réservé est complètement opaque */
+}
+</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>690</x>
-        <y>260</y>
-        <width>151</width>
+        <x>840</x>
+        <y>180</y>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
@@ -1305,52 +1296,14 @@ QTableView::item:selected {
 </string>
       </property>
       <property name="text">
-       <string>Donner l'Id:</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_25">
-      <property name="geometry">
-       <rect>
-        <x>1030</x>
-        <y>260</y>
-        <width>141</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-    border-radius: 10px; /* Softer corners */
-    background: #F0F0F0; /* Light gray background */
-    color: #2C3E50; /* Darker blue-gray text color */
-    padding: 12px 20px; /* Increased padding for a larger touch area */
-    border: 2px solid #2980B9; /* Bright blue border */
-    font-weight: bold; /* Bold text for emphasis */
-    font-size: 16px; /* Slightly larger font size */
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transitions */
-}
-
-QPushButton:hover {
-    background: rgba(41, 128, 185, 0.15); /* Light blue on hover */
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow for depth */
-    transform: translateY(-3px); /* Slight lift effect */
-}
-
-QPushButton:pressed {
-    background: rgba(41, 128, 185, 0.25); /* Slightly darker blue when pressed */
-    box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2); /* Inner shadow effect */
-    transform: translateY(1px); /* Slight depression effect */
-}
-</string>
-      </property>
-      <property name="text">
        <string>Chercher</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_26">
+     <widget class="QPushButton" name="pushButton_exporter">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>410</y>
+        <x>430</x>
+        <y>370</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -1381,7 +1334,7 @@ QPushButton:pressed {
 </string>
       </property>
       <property name="text">
-       <string>Actualiser</string>
+       <string>Exporter</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_49">
@@ -1423,28 +1376,15 @@ QPushButton:pressed {
 </string>
       </property>
       <property name="text">
-       <string>Historique:</string>
+       <string>Suivi:</string>
       </property>
      </widget>
-     <zorder>label_49</zorder>
-     <zorder>tableWidget_7</zorder>
-     <zorder>label_5</zorder>
-     <zorder>lineEdit_2</zorder>
-     <zorder>label_6</zorder>
-     <zorder>pushButton_25</zorder>
-     <zorder>pushButton_26</zorder>
-     <zorder>label_53</zorder>
-    </widget>
-    <widget class="QWidget" name="tab_6">
-     <attribute name="title">
-      <string>Suivi</string>
-     </attribute>
-     <widget class="QTableWidget" name="tableWidget_9">
+     <widget class="QTableView" name="tableView_6">
       <property name="geometry">
        <rect>
-        <x>750</x>
-        <y>70</y>
-        <width>371</width>
+        <x>230</x>
+        <y>150</y>
+        <width>561</width>
         <height>211</height>
        </rect>
       </property>
@@ -1470,190 +1410,166 @@ QTableView::item:selected {
 </string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_7">
+     <widget class="QPushButton" name="pushButton_tri">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>90</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel {
-    color: white;                     /* Couleur du texte (blanc) */
-    font-size: 20px;                  /* Taille de police */
-    font-family: 'Lato', sans-serif;  /* Polices de fallback */
-    padding: 10px;                    /* Espacement autour du texte */
-    font-weight: bold;                /* Met le texte en gras */
-    font-style: italic;               /* Met le texte en italique */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Liste des fournissuer</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>290</y>
-        <width>231</width>
+        <x>250</x>
+        <y>370</y>
+        <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel {
-    color: white;                     /* Couleur du texte (blanc) */
-    font-size: 20px;                  /* Taille de police */
-    font-family: 'Lato', sans-serif;  /* Polices de fallback */
-    padding: 10px;                    /* Espacement autour du texte */
-    font-weight: bold;                /* Met le texte en gras */
-    font-style: italic;               /* Met le texte en italique */
+       <string notr="true">QPushButton {
+    border-radius: 12px; /* Coins arrondis */
+    background: #F0F0F0; /* Fond gris clair */
+    color: #2C3E50; /* Couleur du texte bleu-gris foncé */
+    padding: 12px 20px; /* Espacement plus grand pour une zone de clic plus large */
+    border: 2px solid black; /* Contour noir */
+    font-weight: bold; /* Texte en gras pour mettre en valeur */
+    font-size: 16px; /* Taille de police légèrement plus grande */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Transitions douces */
+}
+
+QPushButton:hover {
+    background: rgba(41, 128, 185, 0.15); /* Bleu clair au survol */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée pour la profondeur */
+    transform: translateY(-3px); /* Effet de soulèvement */
+}
+
+QPushButton:pressed {
+    background: rgba(41, 128, 185, 0.25); /* Bleu légèrement plus foncé lorsque pressé */
+    box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2); /* Effet d'ombre intérieure */
+    transform: translateY(1px); /* Effet de légère dépression */
 }
 </string>
       </property>
       <property name="text">
-       <string>Liste des echanges</string>
+       <string>tri par id</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_11">
+     <widget class="QPushButton" name="pushButtonStatistiques">
       <property name="geometry">
        <rect>
-        <x>840</x>
-        <y>20</y>
-        <width>211</width>
-        <height>41</height>
+        <x>610</x>
+        <y>370</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel {
-    color: white;                     /* Couleur du texte (blanc) */
-    font-size: 20px;                  /* Taille de police */
-    font-family: 'Lato', sans-serif;  /* Polices de fallback */
-    padding: 10px;                    /* Espacement autour du texte */
-    font-weight: bold;                /* Met le texte en gras */
-    font-style: italic;               /* Met le texte en italique */
+       <string notr="true">QPushButton {
+    border-radius: 12px; /* Coins arrondis */
+    background: #F0F0F0; /* Fond gris clair */
+    color: #2C3E50; /* Couleur du texte bleu-gris foncé */
+    padding: 12px 20px; /* Espacement plus grand pour une zone de clic plus large */
+    border: 2px solid black; /* Contour noir */
+    font-weight: bold; /* Texte en gras pour mettre en valeur */
+    font-size: 16px; /* Taille de police légèrement plus grande */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Transitions douces */
+}
+
+QPushButton:hover {
+    background: rgba(41, 128, 185, 0.15); /* Bleu clair au survol */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée pour la profondeur */
+    transform: translateY(-3px); /* Effet de soulèvement */
+}
+
+QPushButton:pressed {
+    background: rgba(41, 128, 185, 0.25); /* Bleu légèrement plus foncé lorsque pressé */
+    box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2); /* Effet d'ombre intérieure */
+    transform: translateY(1px); /* Effet de légère dépression */
 }
 </string>
       </property>
       <property name="text">
-       <string>Liste des retours</string>
+       <string>Statistique</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_10">
+     <widget class="QPushButton" name="pushButton_tri_2">
       <property name="geometry">
        <rect>
-        <x>760</x>
-        <y>340</y>
-        <width>371</width>
-        <height>211</height>
+        <x>250</x>
+        <y>430</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableView {
-    background-color: black;        /* Fond de la table en noir */
-    color: white;                   /* Texte en blanc */
-    border: 1px solid #3A3A3A;      /* Bordure gris foncé */
-    gridline-color: #444444;        /* Couleur des lignes de grille (gris foncé) */
-    selection-background-color: #2980B9; /* Fond bleu pour la sélection */
-    selection-color: white;         /* Texte blanc pour la sélection */
+       <string notr="true">QPushButton {
+    border-radius: 12px; /* Coins arrondis */
+    background: #F0F0F0; /* Fond gris clair */
+    color: #2C3E50; /* Couleur du texte bleu-gris foncé */
+    padding: 12px 20px; /* Espacement plus grand pour une zone de clic plus large */
+    border: 2px solid black; /* Contour noir */
+    font-weight: bold; /* Texte en gras pour mettre en valeur */
+    font-size: 16px; /* Taille de police légèrement plus grande */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Transitions douces */
 }
 
-QTableView::item {
-    background-color: black;        /* Fond noir pour les cellules */
-    color: white;                   /* Texte des cellules en blanc */
+QPushButton:hover {
+    background: rgba(41, 128, 185, 0.15); /* Bleu clair au survol */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée pour la profondeur */
+    transform: translateY(-3px); /* Effet de soulèvement */
 }
 
-QTableView::item:selected {
-    background-color: #2980B9;      /* Fond bleu pour les cellules sélectionnées */
-    color: white;                   /* Texte blanc pour les cellules sélectionnées */
+QPushButton:pressed {
+    background: rgba(41, 128, 185, 0.25); /* Bleu légèrement plus foncé lorsque pressé */
+    box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2); /* Effet d'ombre intérieure */
+    transform: translateY(1px); /* Effet de légère dépression */
 }
 </string>
       </property>
+      <property name="text">
+       <string>tri par email</string>
+      </property>
      </widget>
-     <widget class="QTableView" name="tableView_2">
+     <widget class="QLabel" name="update_label">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>150</y>
-        <width>521</width>
-        <height>211</height>
+        <x>910</x>
+        <y>290</y>
+        <width>201</width>
+        <height>151</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTableView {
-    background-color: black;        /* Fond de la table en noir */
-    color: white;                   /* Texte en blanc */
-    border: 1px solid #3A3A3A;      /* Bordure gris foncé */
-    gridline-color: #444444;        /* Couleur des lignes de grille (gris foncé) */
-    selection-background-color: #2980B9; /* Fond bleu pour la sélection */
-    selection-color: white;         /* Texte blanc pour la sélection */
+       <string notr="true">QLabel {
+    border: 3px solid black;          /* Couleur du contour (noir) */
+    border-radius: 8px;               /* Coins arrondis */
+    padding: 10px;                    /* Espacement à l'intérieur du line edit */
+    background-color: #D3D3D3;        /* Fond gris clair */
+    color: #333;                      /* Couleur du texte sombre */
+    font-size: 14px;                  /* Taille de police */
+    transition: border-color 0.3s;    /* Transition douce pour la couleur du contour */
 }
 
-QTableView::item {
-    background-color: black;        /* Fond noir pour les cellules */
-    color: white;                   /* Texte des cellules en blanc */
+QLabel:focus {
+    border: 3px solid black;          /* Contour noir lorsqu'il est en focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Effet d'ombre subtil (noir) */
 }
 
-QTableView::item:selected {
-    background-color: #2980B9;      /* Fond bleu pour les cellules sélectionnées */
-    color: white;                   /* Texte blanc pour les cellules sélectionnées */
+QLabel::placeholder {
+    color: #999;                      /* Couleur du texte d'espace réservé */
+    opacity: 1;                       /* Assurez-vous que l'espace réservé est complètement opaque */
 }
 </string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_50">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>1211</width>
-        <height>571</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/Downloads/depositphotos_514902144-stock-il.jpg);</string>
       </property>
       <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_54">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>141</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel {
-    color: #4A4A4A;                   /* Couleur du texte (gris foncé) */
-    font-size: 30px;                  /* Taille de police */
-    font-family: 'Lato', sans-serif;  /* Polices de fallback */
-    padding: 10px;                    /* Espacement autour du texte */
-    font-weight: bold;                /* Met le texte en gras */
-    text-decoration: underline;       /* Souligne le texte */
-    font-style: italic;               /* Met le texte en italique */
-    color: #32CD32;                   /* Couleur vert lime */
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Suivi:</string>
-      </property>
-     </widget>
-     <zorder>label_50</zorder>
-     <zorder>tableWidget_9</zorder>
-     <zorder>label_7</zorder>
-     <zorder>label_8</zorder>
-     <zorder>label_11</zorder>
-     <zorder>tableWidget_10</zorder>
-     <zorder>tableView_2</zorder>
-     <zorder>label_54</zorder>
+     <zorder>label_49</zorder>
+     <zorder>label_5</zorder>
+     <zorder>lineEdit_recherche</zorder>
+     <zorder>label_6</zorder>
+     <zorder>pushButton_exporter</zorder>
+     <zorder>label_53</zorder>
+     <zorder>tableView_6</zorder>
+     <zorder>pushButton_tri</zorder>
+     <zorder>pushButtonStatistiques</zorder>
+     <zorder>pushButton_tri_2</zorder>
+     <zorder>update_label</zorder>
     </widget>
     <widget class="QWidget" name="tab_8">
      <attribute name="title">
@@ -1662,8 +1578,8 @@ QTableView::item:selected {
      <widget class="QLabel" name="label_28">
       <property name="geometry">
        <rect>
-        <x>860</x>
-        <y>70</y>
+        <x>890</x>
+        <y>60</y>
         <width>121</width>
         <height>41</height>
        </rect>
@@ -1723,7 +1639,7 @@ QTableView::item:selected {
        <string>Donner l'id</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="lineEditID">
       <property name="geometry">
        <rect>
         <x>260</x>
@@ -1755,11 +1671,11 @@ QLineEdit::placeholder {
 </string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_17">
+     <widget class="QPushButton" name="genererQRCodeButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>200</y>
+        <x>180</x>
+        <y>180</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -1790,20 +1706,21 @@ QPushButton:pressed {
 </string>
       </property>
       <property name="text">
-       <string>Chercher</string>
+       <string>Generer</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_18">
+     <widget class="QPushButton" name="telechargerQRCodeButton">
       <property name="geometry">
        <rect>
-        <x>840</x>
+        <x>870</x>
         <y>450</y>
-        <width>211</width>
+        <width>171</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+	image: url(:/Downloads/image-removebg-preview.png);
     border-radius: 12px; /* Coins arrondis */
     background: #F0F0F0; /* Fond gris clair */
     color: #2C3E50; /* Couleur du texte bleu-gris foncé */
@@ -1828,16 +1745,16 @@ QPushButton:pressed {
 </string>
       </property>
       <property name="text">
-       <string>Aller au destination</string>
+       <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="qrCodeLabel">
       <property name="geometry">
        <rect>
         <x>810</x>
         <y>130</y>
-        <width>251</width>
-        <height>251</height>
+        <width>291</width>
+        <height>291</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1863,13 +1780,45 @@ QPushButton:pressed {
        <string/>
       </property>
      </widget>
+     <widget class="QTableView" name="tableView_7">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>260</y>
+        <width>561</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView {
+    background-color: black;        /* Fond de la table en noir */
+    color: white;                   /* Texte en blanc */
+    border: 1px solid #3A3A3A;      /* Bordure gris foncé */
+    gridline-color: #444444;        /* Couleur des lignes de grille (gris foncé) */
+    selection-background-color: #2980B9; /* Fond bleu pour la sélection */
+    selection-color: white;         /* Texte blanc pour la sélection */
+}
+
+QTableView::item {
+    background-color: black;        /* Fond noir pour les cellules */
+    color: white;                   /* Texte des cellules en blanc */
+}
+
+QTableView::item:selected {
+    background-color: #2980B9;      /* Fond bleu pour les cellules sélectionnées */
+    color: white;                   /* Texte blanc pour les cellules sélectionnées */
+}
+</string>
+      </property>
+     </widget>
      <zorder>label_51</zorder>
      <zorder>label_28</zorder>
      <zorder>label_29</zorder>
-     <zorder>lineEdit_4</zorder>
-     <zorder>pushButton_17</zorder>
-     <zorder>pushButton_18</zorder>
-     <zorder>label_3</zorder>
+     <zorder>lineEditID</zorder>
+     <zorder>genererQRCodeButton</zorder>
+     <zorder>telechargerQRCodeButton</zorder>
+     <zorder>qrCodeLabel</zorder>
+     <zorder>tableView_7</zorder>
     </widget>
    </widget>
   </widget>

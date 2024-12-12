@@ -1,0 +1,180 @@
+Date et Heure : 20/11/2024 23:41:31
+Action : Modification
+Détails : Fournisseur modifié: z, ID: 1234
+----------------------------
+Date et Heure : 20/11/2024 23:41:37
+Action : Modification
+Détails : Fournisseur modifié: z, ID: 7777
+----------------------------
+Date et Heure : 20/11/2024 23:46:08
+Action : Modification
+Détails : Fournisseur modifié: d, ID: 7777
+----------------------------
+Date et Heure : 20/11/2024 23:46:24
+Action : Modification
+Détails : Fournisseur modifié: b, ID: 7777
+----------------------------
+Date et Heure : 20/11/2024 23:48:08
+Action : Modification
+Détails : Fournisseur modifié: , ID: 1234
+----------------------------
+Date et Heure : 20/11/2024 23:48:29
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 1234
+----------------------------
+Date et Heure : 20/11/2024 23:48:34
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 7777
+----------------------------
+Date et Heure : 20/11/2024 23:49:33
+Action : Ajout
+Détails : Fournisseur ajouté: vvv, ID: 11
+----------------------------
+Date et Heure : 21/11/2024 10:11:01
+Action : Ajout
+Détails : Fournisseur ajouté: zara, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 10:11:10
+Action : Ajout
+Détails : Fournisseur ajouté: zara, ID: 1234
+----------------------------
+Date et Heure : 21/11/2024 10:11:17
+Action : Ajout
+Détails : Fournisseur ajouté: zara, ID: 12345
+----------------------------
+Date et Heure : 21/11/2024 10:11:22
+Action : Ajout
+Détails : Fournisseur ajouté: zara, ID: 123456
+----------------------------
+Date et Heure : 21/11/2024 10:11:33
+Action : Ajout
+Détails : Fournisseur ajouté: zara, ID: 1234567
+----------------------------
+Date et Heure : 21/11/2024 10:11:38
+Action : Ajout
+Détails : Fournisseur ajouté: zara, ID: 999
+----------------------------
+Date et Heure : 21/11/2024 10:48:51
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 11
+----------------------------
+Date et Heure : 21/11/2024 10:49:21
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 1234567
+----------------------------
+Date et Heure : 21/11/2024 10:49:51
+Action : Ajout
+Détails : Fournisseur ajouté: bershka, ID: 90
+----------------------------
+Date et Heure : 21/11/2024 10:49:57
+Action : Ajout
+Détails : Fournisseur ajouté: bershka, ID: 901
+----------------------------
+Date et Heure : 21/11/2024 10:50:02
+Action : Ajout
+Détails : Fournisseur ajouté: bershka, ID: 9012
+----------------------------
+Date et Heure : 21/11/2024 10:50:46
+Action : Modification
+Détails : Fournisseur modifié: , ID: 90
+----------------------------
+Date et Heure : 21/11/2024 10:50:55
+Action : Modification
+Détails : Fournisseur modifié: , ID: 123
+----------------------------
+Date et Heure : 21/11/2024 10:58:39
+Action : Ajout
+Détails : Fournisseur ajouté: mmm, ID: 400
+----------------------------
+Date et Heure : 21/11/2024 11:03:37
+Action : Ajout
+Détails : Fournisseur ajouté: za ra, ID: 80
+----------------------------
+Date et Heure : 21/11/2024 11:03:54
+Action : Ajout
+Détails : Fournisseur ajouté: za ra, ID: 801
+----------------------------
+Date et Heure : 21/11/2024 11:04:20
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 801
+----------------------------
+Date et Heure : 21/11/2024 11:07:33
+Action : Modification
+Détails : Fournisseur modifié: pull and bear, ID: 90
+----------------------------
+Date et Heure : 21/11/2024 11:11:00
+Action : Ajout
+Détails : Fournisseur ajouté: pull and bear, ID: 904
+----------------------------
+Date et Heure : 21/11/2024 13:59:28
+Action : Modification
+Détails : Fournisseur modifié: e@gmail.com, ID: 90
+----------------------------
+Date et Heure : 21/11/2024 14:00:40
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 90
+----------------------------
+Date et Heure : 21/11/2024 14:02:05
+Action : Modification
+Détails : Fournisseur modifié: bershka, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:07:31
+Action : Modification
+Détails : Fournisseur modifié: f, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:08:51
+Action : Modification
+Détails : Fournisseur modifié: z, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:09:56
+Action : Modification
+Détails : Fournisseur modifié: ggg, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:11:07
+Action : Modification
+Détails : Fournisseur modifié: gggggg, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:11:58
+Action : Modification
+Détails : Fournisseur modifié: , ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:12:04
+Action : Modification
+Détails : Fournisseur modifié: qq, ID: 123
+----------------------------
+Date et Heure : 21/11/2024 14:13:15
+Action : Modification
+Détails : Fournisseur modifié: nnnn, ID: 901
+----------------------------
+Date et Heure : 21/11/2024 14:16:57
+Action : Modification
+Détails : Fournisseur modifié: bb, ID: 123
+----------------------------
+Date et Heure : 22/11/2024 00:48:51
+Action : Modification
+Détails : Fournisseur modifié: ddd, ID: 123
+----------------------------
+Date et Heure : 22/11/2024 00:50:12
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 123
+----------------------------
+Date et Heure : 22/11/2024 01:01:24
+Action : Modification
+Détails : Fournisseur modifié: bershka, ID: 1234
+----------------------------
+Date et Heure : 22/11/2024 01:12:28
+Action : Ajout
+Détails : Fournisseur ajouté: za ra, ID: 1212
+----------------------------
+Date et Heure : 22/11/2024 10:57:08
+Action : Modification
+Détails : Fournisseur modifié: , ID: 1212
+----------------------------
+Date et Heure : 06/12/2024 10:08:44
+Action : Modification
+Détails : Fournisseur modifié: , ID: 1234
+----------------------------
+Date et Heure : 06/12/2024 10:09:03
+Action : Suppression
+Détails : Fournisseur supprimé, ID: 1234
+----------------------------
